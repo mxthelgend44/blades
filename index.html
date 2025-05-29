@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-B">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbine Blade Defects</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f8f9fa; /* Light theme background */
+            color: #000000; /* Black text */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            border: 2px solid #009fe3; /* Table border color */
+        }
+        th, td {
+            border: 1px solid #009fe3; /* Cell border color */
+            padding: 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #e9ecef; /* Light header background */
+        }
+        model-viewer { /* Default style for all model-viewers */
+            width: 300px;
+            height: 250px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin: 5px auto; /* Center if container is wider */
+        }
+        .defect-name {
+            font-weight: bold;
+        }
+        .model-caption {
+            font-size: 0.9em;
+            text-align: center;
+            color: #555;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Styles for the model slider */
+        .model-slider {
+            position: relative;
+            min-height: 320px; /* Adjust as needed for model-viewer + caption + nav */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slider-item {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            align-items: center; /* Center model-viewer and caption */
+            width: 100%;
+        }
+
+        .slider-item.active {
+            display: flex; /* Show active item */
+        }
+
+        .slider-item model-viewer {
+            margin-bottom: 5px; /* Space between model and its caption */
+        }
+
+        .slider-nav {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .slider-nav button {
+            background-color: #009fe3;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+            font-size: 0.9em;
+        }
+
+        .slider-nav button:hover {
+            background-color: #007bb5;
+        }
+
+        .slider-nav button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .slider-nav .slide-info {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 0.9em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Turbine Blade Defect Viewer ⚙️</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Defect Type / Condition</th>
+                <th>3D Model(s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="defect-name">Normal</td>
+                <td>
+                    <div style="text-align: center;">
+                        <model-viewer src="models/nomral.glb"
+                                      alt="Normal Blade"
+                                      camera-controls
+                                      auto-rotate
+                                      environment-image="neutral"
+                                      exposure="1.2"
+                                      shadow-intensity="1">
+                        </model-viewer>
+                        <p class="model-caption">nomral.glb</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="defect-name">Battered</td>
+                <td>
+                    <div class="model-slider">
+                        <div class="slider-item">
+                            <model-viewer src="models/battered.glb"
+                                          alt="Battered Blade - Severity 1"
+                                          camera-controls
+                                          auto-rotate
+                                          environment-image="neutral"
+                                          exposure="1.2"
+                                          shadow-intensity="1">
+                            </model-viewer>
+                            <p class="model-caption">battered.glb (Severity 1)</p>
+                        </div>
+                        <div class="slider-item">
+                            <model-viewer src="models/battered2.glb"
+                                          alt="Battered Blade - Severity 2"
+                                          camera-controls
+                                          auto-rotate
+                                          environment-image="neutral"
+                                          exposure="1.2"
+                                          shadow-intensity="1">
+                            </model-viewer>
+                             <p class="model-caption">battered2.glb (Severity 2)</p>
+                        </div>
+                        <div class="slider-item">
+                            <model-viewer src="models/battered3.glb"
+                                          alt="Battered Blade - Severity 3"
+                                          camera-controls
+                                          auto-rotate
+                                          environment-image="neutral"
+                                          exposure="1.2"
+                                          shadow-intensity="1">
+                            </model-viewer>
+                            <p class="model-caption">battered3.glb (Severity 3)</p>
+                        </div>
+                        <div class="slider-nav">
+                            <button class="prev">◄ Prev</button>
+                            <span class="slide-info"></span>
+                            <button class="next">Next ►</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="defect-name">Bent</td>
+                <td>
+                    <div class="model-slider">
+                        <div class="slider-item">
+                            <model-viewer src="models/Bent.glb"
+                                          alt="Bent Blade - Severity 1"
+                                          camera-controls
+                                          auto-rotate
+                                          environment-image="neutral"
+                                          exposure="1.2"
+                                          shadow-intensity="1">
+                            </model-viewer>
+                            <p class="model-caption">Bent.glb (Severity 1)</p>
+                        </div>
+                        <div class="slider-item">
+                            <model-viewer src="models/Bent2.glb"
+                                          alt="Bent Blade - Severity 2"
+                                          camera-controls
+                                          auto-rotate
+                                          environment-image="neutral"
+                                          exposure="1.2"
+                                          shadow-intensity="1">
+                            </model-viewer>
+                            <p class="model-caption">Bent2.glb (Severity 2)</p>
+                        </div>
+                        <div class="slider-item">
+                            <model-viewer src="models/Bent3.glb"
+                                          alt="Bent Blade - Severity 3"
+                                          camera-controls
+                                          auto-rotate
+                                          environment-image="neutral"
+                                          exposure="1.2"
+                                          shadow-intensity="1">
+                            </model-viewer>
+                            <p class="model-caption">Bent3.glb (Severity 3)</p>
+                        </div>
+                        <div class="slider-nav">
+                            <button class="prev">◄ Prev</button>
+                            <span class="slide-info"></span>
+                            <button class="next">Next ►</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="defect-name">Broken</td>
+                <td>
+                     <div class="model-slider">
+                        <div class="slider-item">
+                            <model-viewer src="models/broken.glb"
+                                          alt="Broken Blade - Severity 1"
+                                          camera-controls
+                                          auto-rotate
+                                          environment-image="neutral"
+                                          exposure="1.2"
+                                          shadow-intensity="1">
+                            </model-viewer>
+                            <p class="model-caption">broken.glb (Severity 1)</p>
+                        </div>
+                        <div class="slider-item">
+                            <model-viewer src="models/broken3.glb"
+                                          alt="Broken Blade - Severity 2"
+                                          camera-controls
+                                          auto-rotate
+                                          environment-image="neutral"
+                                          exposure="1.2"
+                                          shadow-intensity="1">
+                            </model-viewer>
+                            <p class="model-caption">broken3.glb (Severity 2)</p>
+                        </div>
+                        <div class="slider-nav">
+                            <button class="prev">◄ Prev</button>
+                            <span class="slide-info"></span>
+                            <button class="next">Next ►</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="defect-name">Cracked</td>
+                <td>
+                    <div style="text-align: center;">
+                        <model-viewer src="models/cracked.glb"
+                                      alt="Cracked Blade"
+                                      camera-controls
+                                      auto-rotate
+                                      environment-image="neutral"
+                                      exposure="1.2"
+                                      shadow-intensity="1">
+                        </model-viewer>
+                        <p class="model-caption">cracked.glb</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="defect-name">Dent on Airfoil</td>
+                <td>
+                    <div style="text-align: center;">
+                        <model-viewer src="models/DentOnAirfoil.glb"
+                                      alt="Dent on Airfoil"
+                                      camera-controls
+                                      auto-rotate
+                                      environment-image="neutral"
+                                      exposure="1.2"
+                                      shadow-intensity="1">
+                        </model-viewer>
+                        <p class="model-caption">DentOnAirfoil.glb</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="defect-name">Dent on Leading Edge</td>
+                <td>
+                    <div style="text-align: center;">
+                        <model-viewer src="models/DentOnLeadingEdge.glb"
+                                      alt="Dent on Leading Edge"
+                                      camera-controls
+                                      auto-rotate
+                                      environment-image="neutral"
+                                      exposure="1.2"
+                                      shadow-intensity="1">
+                        </model-viewer>
+                        <p class="model-caption">DentOnLeadingEdge.glb</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="defect-name">Nick</td>
+                <td>
+                    <div style="text-align: center;">
+                        <model-viewer src="models/Nick.glb"
+                                      alt="Nick on Blade"
+                                      camera-controls
+                                      auto-rotate
+                                      environment-image="neutral"
+                                      exposure="1.2"
+                                      shadow-intensity="1">
+                        </model-viewer>
+                        <p class="model-caption">Nick.glb</p>
+                    </div>
+                </td>
+            </tr>
+             <tr>
+                <td class="defect-name">Scratch</td>
+                <td>
+                    <div style="text-align: center;">
+                        <model-viewer src="models/Scratch.glb"
+                                      alt="Scratch on Blade"
+                                      camera-controls
+                                      auto-rotate
+                                      environment-image="neutral"
+                                      exposure="1.2"
+                                      shadow-intensity="1">
+                        </model-viewer>
+                        <p class="model-caption">Scratch.glb</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="defect-name">Tear</td>
+                <td>
+                    <div style="text-align: center;">
+                        <model-viewer src="models/Tear.glb"
+                                      alt="Tear on Blade"
+                                      camera-controls
+                                      auto-rotate
+                                      environment-image="neutral"
+                                      exposure="1.2"
+                                      shadow-intensity="1">
+                        </model-viewer>
+                        <p class="model-caption">Tear.glb</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="defect-name">Tip Curl</td>
+                <td>
+                    <div style="text-align: center;">
+                        <model-viewer src="models/TipCurl.glb"
+                                      alt="Tip Curl on Blade"
+                                      camera-controls
+                                      auto-rotate
+                                      environment-image="neutral"
+                                      exposure="1.2"
+                                      shadow-intensity="1">
+                        </model-viewer>
+                        <p class="model-caption">TipCurl.glb</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliders = document.querySelectorAll('.model-slider');
+
+            sliders.forEach(slider => {
+                const items = slider.querySelectorAll('.slider-item');
+                const navPrev = slider.querySelector('.slider-nav .prev');
+                const navNext = slider.querySelector('.slider-nav .next');
+                const slideInfo = slider.querySelector('.slider-nav .slide-info');
+                let currentIndex = 0;
+                const totalSlides = items.length;
+
+                function showSlide(index) {
+                    items.forEach((item, i) => {
+                        item.classList.toggle('active', i === index);
+                    });
+                    if (slideInfo) {
+                        slideInfo.textContent = `${index + 1} / ${totalSlides}`;
+                    }
+                    if (navPrev) {
+                        navPrev.disabled = index === 0;
+                    }
+                    if (navNext) {
+                        navNext.disabled = index === totalSlides - 1;
+                    }
+                    // Optional: If models are heavy, you might want to set src only when active
+                    // or use model-viewer's poster attribute more effectively.
+                    // For now, all model-viewers in a slider are in the DOM.
+                }
+
+                if (navPrev) {
+                    navPrev.addEventListener('click', () => {
+                        if (currentIndex > 0) {
+                            currentIndex--;
+                            showSlide(currentIndex);
+                        }
+                    });
+                }
+
+                if (navNext) {
+                    navNext.addEventListener('click', () => {
+                        if (currentIndex < totalSlides - 1) {
+                            currentIndex++;
+                            showSlide(currentIndex);
+                        }
+                    });
+                }
+
+                // Initialize the first slide
+                if (items.length > 0) {
+                    showSlide(0);
+                } else if (slideInfo) {
+                    slideInfo.textContent = "No models";
+                    if (navPrev) navPrev.style.display = 'none';
+                    if (navNext) navNext.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
